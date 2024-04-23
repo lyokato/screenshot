@@ -77,7 +77,7 @@ class ScreenshotController {
           if (context != null)
             pixelRatio = pixelRatio ?? MediaQuery.of(context).devicePixelRatio;
         }
-        ui.Image image = await boundary.toImage(pixelRatio: pixelRatio ?? 1);
+        ui.Image image = boundary.toImageSync(pixelRatio: pixelRatio ?? 1);
         return image;
       } catch (e) {
         throw e;
@@ -211,7 +211,7 @@ class ScreenshotController {
       ///
       isDirty = false;
 
-      image = await repaintBoundary.toImage(
+      image = repaintBoundary.toImageSync(
           pixelRatio: pixelRatio ?? (imageSize.width / logicalSize.width));
 
       ///
